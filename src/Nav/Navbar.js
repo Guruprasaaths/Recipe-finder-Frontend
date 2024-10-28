@@ -22,9 +22,9 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/" className="nav-link-custom">Home</Nav.Link>
-            <a href="/search" className="nav-link-custom">Search</a>
-            <a href="/login" className="nav-link-custom">Login</a>
-            <a href="/signup" className="nav-link-custom">Signup</a>
+            <Nav.Link href="/search" className="nav-link-custom">Search</Nav.Link>
+            <Nav.Link href="/login" className="nav-link-custom">Login</Nav.Link>
+            <Nav.Link href="/signup" className="nav-link-custom">Signup</Nav.Link>
             <button onClick={handleLogout} className="btn btn-logout">
               Logout
             </button>
