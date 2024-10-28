@@ -41,7 +41,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/logins" element={<Login />} />
         <Route path="/" element={<Home />} /> {/* Route for Home */}
         <Route path="/otp" element={<OTP />} /> 
         <Route path="/admin" element={<AdminLogin />} />
