@@ -41,7 +41,7 @@ const RecipeForm = () => {
     e.preventDefault();
     try {
       // Send POST request to your backend API to save recipe
-      const res = await axios.post('http://localhost:5000/recipes', formData);
+      const res = await axios.post('https://recipe-finder-backend-l8gc.onrender.com/recipes', formData);
       setMessage(res.data.message || 'Recipe saved successfully!');
     } catch (err) {
       setMessage(err.response.data.message || 'Error saving recipe');

@@ -21,7 +21,7 @@ const AdminLogin = () => {
     e.preventDefault();
     
     try {
-      const res = await axios.post('http://localhost:5000/admin/login', formData);
+      const res = await axios.post('https://recipe-finder-backend-l8gc.onrender.com/admin/login', formData);
       navigate('/dash');   // Store the token in local storage
     } catch (err) {
       setMessage(err.response.data.message || 'Server error');
