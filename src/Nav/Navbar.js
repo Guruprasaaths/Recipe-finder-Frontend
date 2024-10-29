@@ -25,6 +25,7 @@ const NavBar = () => {
             <Nav.Link href="/search" className="nav-link-custom">Search</Nav.Link>
             <Nav.Link href="/login" className="nav-link-custom">Login</Nav.Link>
             <Nav.Link href="/signup" className="nav-link-custom">Signup</Nav.Link>
+            <Nav.Link href="/admin" className="nav-link-custom">Admin</Nav.Link>
             <button onClick={handleLogout} className="btn btn-logout">
               Logout
             </button>
