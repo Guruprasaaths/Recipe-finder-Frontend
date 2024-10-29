@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeForm = () => {
   const [formData, setFormData] = useState({
@@ -40,85 +39,197 @@ const RecipeForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send POST request to your backend API to save recipe
       const res = await axios.post('https://recipe-finder-backend-l8gc.onrender.com/recipes', formData);
-      setMessage(res.data.message || 'Recipe saved successfully!');
+      setMessage(res?.data?.message || 'Recipe saved successfully!');
     } catch (err) {
-      setMessage(err.response.data.message || 'Error saving recipe');
+      setMessage(err?.response?.data?.message || 'Error saving recipe');
     }
   };
+  
 
   return (
-    <div className="container mt-4">
-      <h2>Add a Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Recipe Name</label>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px',
+      backgroundColor: '#f5f7fa',
+      height: '100vh',
+      fontFamily: 'Arial, sans-serif',
+      color: '#333'
+    }}>
+      <h2 style={{
+        fontSize: '2em',
+        color: '#4b79a1',
+        textShadow: '1px 1px 3px #b3cde0',
+        marginBottom: '20px'
+      }}>Add a Recipe</h2>
+      <form onSubmit={handleSubmit} style={{
+        backgroundColor: '#ffffff',
+        padding: '30px',
+        borderRadius: '10px',
+        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)',
+        width: '100%',
+        maxWidth: '500px',
+        transition: 'transform 0.3s ease',
+      }}>
+        <div style={{ marginBottom: '15px' }}>
+          <label style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Recipe Name</label>
           <input
             type="text"
             name="label"
-            className="form-control"
             value={formData.label}
             onChange={handleChange}
             required
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              boxShadow: 'inset 0px 2px 4px rgba(0, 0, 0, 0.1)',
+              outline: 'none',
+              transition: 'border-color 0.3s ease'
+            }}
+            onFocus={(e) => e.target.style.borderColor = '#4b79a1'}
+            onBlur={(e) => e.target.style.borderColor = '#ccc'}
           />
         </div>
-        <div className="form-group">
-          <label>Image URL</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Image URL</label>
           <input
             type="text"
             name="image"
-            className="form-control"
             value={formData.image}
             onChange={handleChange}
             required
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              boxShadow: 'inset 0px 2px 4px rgba(0, 0, 0, 0.1)',
+              outline: 'none',
+              transition: 'border-color 0.3s ease'
+            }}
+            onFocus={(e) => e.target.style.borderColor = '#4b79a1'}
+            onBlur={(e) => e.target.style.borderColor = '#ccc'}
           />
         </div>
-        <div className="form-group">
-          <label>Total Time (minutes)</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Total Time (minutes)</label>
           <input
             type="number"
             name="totalTime"
-            className="form-control"
             value={formData.totalTime}
             onChange={handleChange}
             required
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              boxShadow: 'inset 0px 2px 4px rgba(0, 0, 0, 0.1)',
+              outline: 'none',
+              transition: 'border-color 0.3s ease'
+            }}
+            onFocus={(e) => e.target.style.borderColor = '#4b79a1'}
+            onBlur={(e) => e.target.style.borderColor = '#ccc'}
           />
         </div>
-        <div className="form-group">
-          <label>Calories</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Calories</label>
           <input
             type="number"
             name="calories"
-            className="form-control"
             value={formData.calories}
             onChange={handleChange}
             required
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              boxShadow: 'inset 0px 2px 4px rgba(0, 0, 0, 0.1)',
+              outline: 'none',
+              transition: 'border-color 0.3s ease'
+            }}
+            onFocus={(e) => e.target.style.borderColor = '#4b79a1'}
+            onBlur={(e) => e.target.style.borderColor = '#ccc'}
           />
         </div>
-        <div className="form-group">
-          <label>Ingredients</label>
+        <div style={{ marginBottom: '15px' }}>
+          <label style={{ fontWeight: 'bold', marginBottom: '5px', display: 'block' }}>Ingredients</label>
           {formData.ingredients.map((ingredient, index) => (
             <input
               key={index}
               type="text"
-              className="form-control mb-2"
               value={ingredient}
               onChange={(e) => handleIngredientChange(e, index)}
               required
+              style={{
+                width: '100%',
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid #ccc',
+                boxShadow: 'inset 0px 2px 4px rgba(0, 0, 0, 0.1)',
+                outline: 'none',
+                marginBottom: '10px',
+                transition: 'border-color 0.3s ease'
+              }}
+              onFocus={(e) => e.target.style.borderColor = '#4b79a1'}
+              onBlur={(e) => e.target.style.borderColor = '#ccc'}
             />
           ))}
           <button
             type="button"
-            className="btn btn-secondary"
             onClick={handleAddIngredient}
+            style={{
+              padding: '8px 16px',
+              backgroundColor: '#4b79a1',
+              color: '#ffffff',
+              borderRadius: '5px',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              transition: 'background-color 0.3s ease, transform 0.2s ease',
+              outline: 'none'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#376089'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#4b79a1'}
           >
             Add Ingredient
           </button>
         </div>
-        <button type="submit" className="btn btn-primary">Save Recipe</button>
+        <button type="submit" style={{
+          width: '100%',
+          padding: '12px',
+          backgroundColor: '#4b79a1',
+          color: '#ffffff',
+          borderRadius: '5px',
+          border: 'none',
+          cursor: 'pointer',
+          fontWeight: 'bold',
+          transition: 'background-color 0.3s ease, transform 0.2s ease',
+          outline: 'none'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#376089';
+          e.target.style.transform = 'scale(1.05)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = '#4b79a1';
+          e.target.style.transform = 'scale(1)';
+        }}>
+          Save Recipe
+        </button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p style={{
+        color: message.includes('success') ? 'green' : 'red',
+        marginTop: '15px',
+        fontWeight: 'bold',
+        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.2)'
+      }}>{message}</p>}
     </div>
   );
 };
